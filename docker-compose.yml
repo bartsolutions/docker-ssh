@@ -1,0 +1,9 @@
+# DEV environment, one image contains all
+version: '2'
+services:
+        docker-ssh:
+                image: docker-ssh
+                ports:
+                  - "2022:22"
+                container_name: "docker-ssh"
+                entrypoint: /usr/bin/supervisord
