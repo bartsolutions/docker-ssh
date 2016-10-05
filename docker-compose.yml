@@ -2,6 +2,7 @@
 version: '2'
 services:
         docker-ssh:
+                build: .
                 image: docker-ssh
                 ports:
                   - "2022:22"
