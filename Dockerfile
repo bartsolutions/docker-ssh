@@ -16,7 +16,7 @@ RUN apt-get -y update && \
 #Set up SSH access
 RUN mkdir /var/run/sshd
 RUN sed -i.bak s/PermitRootLogin\ without-password/PermitRootLogin\ yes/g  /etc/ssh/sshd_config
-RUN echo "root:babaningbo" | chpasswd
+RUN echo "root:<CHANGE_ME>" | chpasswd
 
 EXPOSE 22 
 
