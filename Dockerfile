@@ -1,6 +1,8 @@
 FROM ubuntu:16.04
-
 USER root
+
+#set up your password here
+ARG sshpass=<CHANGE_ME>
 
 WORKDIR /root
 
@@ -15,8 +17,8 @@ RUN apt-get -y update && \
 
 #Set up SSH access
 RUN mkdir /var/run/sshd
-RUN sed -i.bak s/PermitRootLogin\ without-password/PermitRootLogin\ yes/g  /etc/ssh/sshd_config
-RUN echo "root:<CHANGE_ME>" | chpasswd
+RUN sed -i.bak s/PermitRootLogin\ prohibit-password/PermitRootLogin\ yes/g  /etc/ssh/sshd_config
+RUN echo "root:$sshpass" | chpasswd
 
 EXPOSE 22 
 
